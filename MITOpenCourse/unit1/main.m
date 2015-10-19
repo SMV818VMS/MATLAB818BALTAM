@@ -171,9 +171,144 @@ p = prod(row);
 % ELEMENT-WISE FUNCTIONS
 %%%
 % You can apply computations toall the same elements of a vector at the
-% smae time
+% same time... 
 
 t = [1 2 3]
 f = exp(t) % The same than
 f = [exp(1) exp(2) exp(3)]
+
+% there are elements like * / ^ that can have the two modes of
+% operation (standard and element-wise) --> To do element-wise operation
+% use the dot:
+
+a = [1 2 3]; b = [4; 2; 1];
+% a.*b, a./b, a.^b % all errors
+a.*b', a./b', a.^(b')
+
+%%%
+% EXERCISE : VECTOR OPERATIONS
+%%%
+% Calculate how many seconds elapsed since the start of class
+
+secPerMin=60;
+secPerHour=60*secPerMin;
+secPerDay=24*secPerHour;
+secPerMonth=30.5*secPerDay;
+secPerYear=12*secPerMonth;
+secondConversion=[secPerYear secPerMonth ...
+secPerDay secPerHour secPerMin 1];
+
+currentTime=clock;
+elapsedTime=currentTime-start;
+t=secondConversion*elapsedTime';
+
+% And display the current knowledge
+currentKnowledge=1-exp(-tau/t);
+disp(['At this time, I know ' ...
+num2str(currentKnowledge*100) '% of MATLAB']);
+
+%%%
+% AUTOMATIC INITIALIZATION
+%%%
+% basics --> thingtoadd(M,N) -> M = number of rows, N = number of columns
+o = ones(1,10)
+z = zeros(23,1)
+r = rand(1,45)
+n = nan(1,69)
+
+% To initialize a linear vector use linspace
+a = linspace(0,10,5) % row with five values from 0 to 10 (same distance between numbers)
+% The same with colon operator
+b = 0:2:10 %starts at 0, increments by 2, and ends at or before 10
+c = 1:5 % if increment isn’t specified, default is 1
+
+%%%
+% EXERCISE : VECTOR FUNCTIONS
+%%%
+% Calculate your leaning trajectory
+
+tVec = linspace(0,endOfClass,10000);
+knowledgeVec=1-exp(-tVec/tau);
+
+%%%
+% VECTOR INDEXING
+%%%
+% it starts with 1!
+a(1); % Returns first element
+
+% The index argument can be a vector
+x = [12 13 5 8];
+a = x(2:3); % a = [13 5];
+b = x(1:end-1); % b = [12 13 5];
+
+%%%
+% MATRIX INDEXING
+%%%
+% Matrices can be indexed in two ways : subscripts or linear indices
+A = rand(5) % shortcut for 5x5 matrix
+A(1,1)
+A(1)
+
+A(1,2) % The same than: 
+A(6)
+
+A(1:3, 1:2) % Specificy contiguous submatrix
+A([1 5 3], [1 4]) % Specify rows and columns
+
+%%%
+% ADVANCED INDEXING
+%%%
+
+% To select rows and columns of a matrix use:
+c = [12 5 ; -2 13]
+d = c(1,:); % d = [12 5]
+e = c(:,2); % e = [5; 13]
+c(2,:) = [3 6]; % replaces second row of c
+
+% functions to find desired values in a vector = max and min
+vec = [5 3 1 9 7]
+[minVal, minInd] = min(vec);
+[maxVal, maxInd] = max(vec);
+
+% To find the index of a specific value
+ind = find(vec == 9);
+ind = find(vec > 2 & vec <6);
+
+%%%
+% EXERCISE : INDEXING
+%%%
+% When will you know 50% of MATLAB
+[val,ind]=min(abs(knowledgeVec-0.5));
+halfTime=tVec(ind);
+disp(['I will know half of MATLAB after ' ...
+num2str(halfTime/secPerDay) ' days']);
+
+%%%
+% BASIC PLOTTING
+%%%
+
+x = linspace(0, 4*pi, 10);
+y = sin(x);
+
+plot(y);
+
+figure(1)
+plot(x,y)
+saveas(1,'figures/basicplot_10.png','png')
+
+% To make a smoother plot
+figure(1)
+x = linspace(0, 4*pi, 1000);
+plot(x,sin(x));
+saveas(1,'figures/basicplot_1000.png','png')
+
+% plot([1 2], [1 2 3]); % ERROR
+
+%%%
+% EXERCISE : PLOTTING
+%%%
+
+figure(2)
+plot(tVec/secPerDay, knowledgeVec);
+saveas(2,'figures/exercise.png','png')
 
