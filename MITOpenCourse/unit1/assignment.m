@@ -54,3 +54,18 @@ end
 r = rand(1, 5);
 r(find(r < 0.5)) = 0;
 
+% Ex8. Plotting multiple lines and colors
+figure(1)
+t = linspace(0, 2*pi, 1000);
+plot(t, sin(t), 'r');
+hold on;
+plot(t, cos(t), '--g');
+xlabel('Time(s)');
+ylabel('Function values');
+title('Sin and Cos functions');
+legend('Sin', 'Cos');
+xlim([0 2*pi]);
+ylim([-1.4 1.4]);
+saveas(1,'figures/ex8.png','png');
+
+% Ex9. Optional: Manipulating variables
