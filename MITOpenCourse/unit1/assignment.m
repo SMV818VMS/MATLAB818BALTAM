@@ -45,7 +45,6 @@ cSub = cMat(2:9, 2:9);
 
 lin = linspace(1, 20, 20);
 for element = lin
-    element
     if mod(element, 2) == 0
         lin(find(lin == element)) = -element
     end
@@ -69,3 +68,4 @@ ylim([-1.4 1.4]);
 saveas(1,'figures/ex8.png','png');
 
 % Ex9. Optional: Manipulating variables
+% Done in the directory ex9
