@@ -1,4 +1,5 @@
 % Ex10 seriesConvergence.m
+% Plot geometric and p series
 
 %%%
 % Geometric series

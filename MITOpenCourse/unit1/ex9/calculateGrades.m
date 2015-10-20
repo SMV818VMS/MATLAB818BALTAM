@@ -1,4 +1,6 @@
 % Ex9 Calculate grades
+% Perform the transformation of a matrix of grades simulating the
+% evaluation of a class
 
 % Load the class
 load classGrades;

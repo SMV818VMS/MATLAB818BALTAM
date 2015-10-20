@@ -1,4 +1,5 @@
 % Ex11 throwBall.m
+% Simulates and plot the trajectory of a ball being throw
 
 % Defining some constants
 h = 1.5; % initial height

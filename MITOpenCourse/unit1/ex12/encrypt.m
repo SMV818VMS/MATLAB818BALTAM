@@ -1,4 +1,6 @@
 % Ex12 encrypt.m
+% Given a text, encrypts it and after decrypts. The last step evaluate the
+% process worked correctly
 
 original = 'This is my top secret message!';
 encrypter = randperm(length(original));
