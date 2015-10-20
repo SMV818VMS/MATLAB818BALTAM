@@ -67,5 +67,5 @@ xlim([0 2*pi]);
 ylim([-1.4 1.4]);
 saveas(1,'figures/ex8.png','png');
 
-% Ex9. Optional: Manipulating variables
-% Done in the directory ex9
+% The optional exercises have a directory for each on of them, feel free to
+% look them there.
