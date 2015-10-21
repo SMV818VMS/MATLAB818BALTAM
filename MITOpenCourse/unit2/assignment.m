@@ -24,3 +24,5 @@ g = figure;
 bar(1:5,rand(1,5), 'r');
 saveas(g, './figures/ex3.png', 'png');
 clear all; close all;
+
+% Exercise 4: Interpolation of surface plots
