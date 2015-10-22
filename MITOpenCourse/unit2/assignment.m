@@ -26,3 +26,17 @@ saveas(g, './figures/ex3.png', 'png');
 clear all; close all;
 
 % Exercise 4: Interpolation of surface plots
+l = figure;
+Z0 = rand(5,5);
+[X0, Y0] = meshgrid([1:5]);
+[X1, Y1] = meshgrid([1:.1:5]);
+Z1 = interp2(X0, Y0, Z0, X1, Y1);
+surf(Z1);
+shading interp;
+colormap(jet);
+hold on;
+colorbar;
+caxis([0 1]);
+contour(Z1,'LineWidth',2);
+saveas(l, './figures/ex4.png', 'png');
+clear all; close all;
