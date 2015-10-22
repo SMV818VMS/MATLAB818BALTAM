@@ -45,4 +45,5 @@ clear all; close all;
 mat = rand(5:5);
 [index, value] = findNearest(mat, 0.23);
 
-
+% Exercise 6: Loops and flow control 
+loopTest(18);
