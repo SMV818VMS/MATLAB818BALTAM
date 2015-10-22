@@ -40,3 +40,9 @@ caxis([0 1]);
 contour(Z1,'LineWidth',2);
 saveas(l, './figures/ex4.png', 'png');
 clear all; close all;
+
+% Exercise 5: findNearest function
+mat = rand(5:5);
+[index, value] = findNearest(mat, 0.23);
+
+
